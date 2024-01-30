@@ -1,0 +1,38 @@
+:root {
+    font-size: 62.5%;
+
+    --ff-primary: ;
+    --text-color: ;
+
+    --hue: ;
+    --primary-color: ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(141, 29, 215);
+}
+
+header{
+    display: flex;
+    img{
+        height: 3rem;
+    }
+}
+
+.search{
+    display: flex;
+}
+
+#app{
+    padding: 11.5rem 16rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
