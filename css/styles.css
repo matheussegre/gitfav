@@ -12,6 +12,7 @@
   --btn-remove-color: hsla(355, 91%, 66%, 1);
   --txt-color:hsla(240, 9%, 89%, 1);
   --txt-placeholder:hsla(240, 6%, 51%, 1);
+  --txt-color-nofav: hsl(189, 4%, 32%);
   --bg-color:hsla(0, 0%, 0%, 1);
 }
 
@@ -21,6 +22,7 @@
   border: none;
   list-style: none;
   box-sizing: border-box;
+  text-decoration: none;
   font-family: var(--ff-primary), sans-serif;
   font-weight: bold;
 }
@@ -35,19 +37,17 @@ header {
 }
 
 table {
-  font-weight: 700;
-  font-size: 1.6rem;
   width: 100%;
-  color: white;
-  margin-top: 5rem;
-  border-collapse: collapse;
+  border-spacing: 0;
 }
 table thead {
+  position: sticky;
+  top: 0;
   background-color: var(--table-header);
 }
 table thead th:first-child {
   border-top-left-radius: 1rem;
-  width: 40rem;
+  width: 36rem;
 }
 table thead th:last-child {
   border-top-right-radius: 1rem;
@@ -55,6 +55,40 @@ table thead th:last-child {
 table th {
   text-align: left;
   padding: 1.6rem 2.4rem 1.6rem 4rem;
+}
+table td {
+  padding: 2.4rem 2.4rem 2.4rem 4rem;
+}
+table tr:nth-child(even) {
+  background: var(--row-secondary-color);
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
+table tr:nth-child(odd) {
+  background: var(--row-primary-color);
+}
+table button {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  background: transparent;
+  color: var(--btn-remove-color);
+}
+
+a {
+  color: white;
+}
+
+td.user {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+td.user img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .search {
@@ -99,6 +133,54 @@ table th {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.table {
+  font-weight: 700;
+  font-size: 1.6rem;
+  width: 100%;
+  color: white;
+  margin-top: 5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 1.2rem;
+  max-height: 32rem;
+  overflow: hidden;
+  overflow-y: overlay;
+}
+
+.table::-webkit-scrollbar {
+  width: 2.2rem;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 1rem;
+  border: 0.8rem solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+}
+
+.no-favs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32rem;
+  background: var(--row-secondary-color);
+  border-radius: 0 0 1.2rem 1.2rem;
+  gap: 6rem;
+}
+.no-favs h2 {
+  font-family: var(--ff-secondary);
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--txt-color-nofav);
+}
+.no-favs img {
+  width: 13rem;
+  height: 13rem;
+}
+
+.hide {
+  display: none;
 }
 
 #app {

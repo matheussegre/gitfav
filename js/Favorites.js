@@ -72,6 +72,7 @@ export class FavoritesView extends Favorites {
   }
 
   update() {
+    this.emptyState()
     this.removeAllTr()
 
     this.entries.forEach( user => {
@@ -81,7 +82,7 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user img').alt = `Imagem de ${user.name}`
       row.querySelector('.user a').href = `https://github.com/${user.login}`
       row.querySelector('.user p').textContent = user.name
-      row.querySelector('.user span').textContent = user.login
+      row.querySelector('.user span').textContent = `/${user.login}`
       row.querySelector('.repositories').textContent = user.public_repos
       row.querySelector('.followers').textContent = user.followers
 
@@ -112,7 +113,7 @@ export class FavoritesView extends Favorites {
       <td class="followers">
       </td>
       <td>
-        <button class="remove">&times;</button>
+        <button class="remove">Remove</button>
       </td>
     `
 
@@ -124,5 +125,13 @@ export class FavoritesView extends Favorites {
       .forEach((tr) => {
         tr.remove()
       })
+  }
+
+  emptyState() {
+    if (this.entries.length === 0) {
+      this.root.querySelector('.empty-state').classList.remove('hide')
+    } else {
+      this.root.querySelector('.empty-state').classList.add('hide')
+    }
   }
 }
